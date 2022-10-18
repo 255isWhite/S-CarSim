@@ -1,0 +1,209 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+ 
+         
+             <link name='rear_left_wheel'>
+                <pose relative_to="chassis">-0.5 0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
+                <inertial>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>0.145833</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>0.145833</iyy>
+                        <iyz>0</iyz>
+                        <izz>0.125</izz>
+                    </inertia>
+                </inertial>
+                <visual name='visual'>
+                    <geometry>
+                        <sphere>
+                            <radius>0.4</radius>
+                        </sphere>
+                    </geometry>
+                    <material>
+                        <ambient>1.0 0.0 0.0 1.0</ambient>
+                        <diffuse>1.0 0.0 0.0 1.0</diffuse>
+                        <specular>1.0 0.0 0.0 1.0</specular>
+                    </material>
+                </visual>
+                <collision name='collision'>
+                    <geometry>
+                        <sphere>
+                            <radius>0.4</radius>
+                        </sphere>
+                    </geometry>
+                </collision>
+            </link>
+
+            <link name='front_left_wheel'>
+                <pose relative_to="chassis">0.5 0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
+                <inertial>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>0.145833</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>0.145833</iyy>
+                        <iyz>0</iyz>
+                        <izz>0.125</izz>
+                    </inertia>
+                </inertial>
+                <visual name='visual'>
+                    <geometry>
+                        <sphere>
+                            <radius>0.4</radius>
+                        </sphere>
+                    </geometry>
+                    <material>
+                        <ambient>1.0 0.0 0.0 1.0</ambient>
+                        <diffuse>1.0 0.0 0.0 1.0</diffuse>
+                        <specular>1.0 0.0 0.0 1.0</specular>
+                    </material>
+                </visual>
+                <collision name='collision'>
+                    <geometry>
+                        <sphere>
+                            <radius>0.4</radius>
+                        </sphere>
+                    </geometry>
+                </collision>
+            </link>
+
+            <!--copy and paste for right wheel but change position-->
+            <link name='rear_right_wheel'>
+                <pose relative_to="chassis">-0.5 -0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
+                <inertial>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>0.145833</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>0.145833</iyy>
+                        <iyz>0</iyz>
+                        <izz>0.125</izz>
+                    </inertia>
+                </inertial>
+                <visual name='visual'>
+                    <geometry>
+                        <sphere>
+                            <radius>0.4</radius>
+                        </sphere>
+                    </geometry>
+                    <material>
+                        <ambient>1.0 0.0 0.0 1.0</ambient>
+                        <diffuse>1.0 0.0 0.0 1.0</diffuse>
+                        <specular>1.0 0.0 0.0 1.0</specular>
+                    </material>
+                </visual>
+                <collision name='collision'>
+                    <geometry>
+                        <sphere>
+                            <radius>0.4</radius>
+                        </sphere>
+                    </geometry>
+                </collision>
+            </link>
+
+            <link name='front_right_wheel'>
+                <pose relative_to="chassis">0.5 -0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
+                <inertial>
+                    <mass>1</mass>
+                    <inertia>
+                        <ixx>0.145833</ixx>
+                        <ixy>0</ixy>
+                        <ixz>0</ixz>
+                        <iyy>0.145833</iyy>
+                        <iyz>0</iyz>
+                        <izz>0.125</izz>
+                    </inertia>
+                </inertial>
+                <visual name='visual'>
+                    <geometry>
+                        <sphere>
+                            <radius>0.4</radius>
+                        </sphere>
+                    </geometry>
+                    <material>
+                        <ambient>1.0 0.0 0.0 1.0</ambient>
+                        <diffuse>1.0 0.0 0.0 1.0</diffuse>
+                        <specular>1.0 0.0 0.0 1.0</specular>
+                    </material>
+                </visual>
+                <collision name='collision'>
+                    <geometry>
+                        <sphere>
+                            <radius>0.4</radius>
+                        </sphere>
+                    </geometry>
+                </collision>
+            </link>        
+         
+         <joint name='rear_left_wheel_joint' type='revolute'> 
+                <pose relative_to='rear_left_wheel'/>
+                <parent>chassis</parent>
+                <child>rear_left_wheel</child>
+                <axis>
+                    <xyz expressed_in='__model__'>0 0 1</xyz> <!--can be descired to any frame or even arbitrary frames-->
+                    <limit>
+                        <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                        <upper>1.79769e+308</upper>     <!--positive infinity-->
+                    </limit>
+                </axis>
+            </joint>
+            <joint name='front_left_wheel_joint' type='revolute'> <!--continous joint is not supported yet-->
+                <pose relative_to='front_left_wheel'/>
+                <parent>chassis</parent>
+                <child>front_left_wheel</child>
+                <axis>
+                    <xyz expressed_in='__model__'>0 0 1</xyz> <!--can be descired to any frame or even arbitrary frames-->
+                    <limit>
+                        <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                        <upper>1.79769e+308</upper>     <!--positive infinity-->
+                    </limit>
+                </axis>
+            </joint>
+
+            <joint name='rear_right_wheel_joint' type='revolute'>
+                <pose relative_to='rear_right_wheel'/>
+                <parent>chassis</parent>
+                <child>rear_right_wheel</child>
+                <axis>
+                    <xyz expressed_in='__model__'>0 0 1</xyz>
+                    <limit>
+                        <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                        <upper>1.79769e+308</upper>     <!--positive infinity-->
+                    </limit>
+                </axis>
+            </joint>
+            <joint name='front_right_wheel_joint' type='revolute'>
+                <pose relative_to='front_right_wheel'/>
+                <parent>chassis</parent>
+                <child>front_right_wheel</child>
+                <axis>
+                    <xyz expressed_in='__model__'>0 0 1 </xyz>
+                    <limit>
+                        <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                        <upper>1.79769e+308</upper>     <!--positive infinity-->
+                    </limit>
+                </axis>
+            </joint>
+
+
+
+            <plugin
+                filename="ignition-gazebo-mecanum-drive-system"
+                name="ignition::gazebo::systems::MecanumDrive">
+                <front_left_joint>front_left_wheel_joint</front_left_joint>
+                <front_right_joint>front_right_wheel_joint</front_right_joint>
+                <back_left_joint>rear_left_wheel_joint</back_left_joint>
+                <back_right_joint>rear_right_wheel_joint</back_right_joint>
+                <wheel_separation>1.25</wheel_separation>
+                <wheelbase>1.511</wheelbase>
+                <wheel_radius>0.4</wheel_radius>
+                <min_acceleration>-5</min_acceleration>
+                <max_acceleration>5</max_acceleration>
+                <odom_publish_frequency>10</odom_publish_frequency>
+                <commandTopic>cmd_vel</commandTopic>
+            </plugin>
+</sdf>

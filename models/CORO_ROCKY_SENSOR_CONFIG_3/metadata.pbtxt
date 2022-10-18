@@ -1,0 +1,13 @@
+model {
+  file: "model.sdf"
+  file_format {
+    version {
+      major: 1
+      minor: 6
+    }
+    name: "sdf"
+  }
+}
+name: "Cooordinated Robotics Rocky Config 3"
+description: "The Rocky robot for SubT."
+

@@ -1,0 +1,3 @@
+/home/zephyrus/exploring/gz/gz_ws/sensors/build/CMakeFiles/lidar_node.dir
+/home/zephyrus/exploring/gz/gz_ws/sensors/build/CMakeFiles/edit_cache.dir
+/home/zephyrus/exploring/gz/gz_ws/sensors/build/CMakeFiles/rebuild_cache.dir

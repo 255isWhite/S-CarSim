@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="crocodile">
+    <static>false</static>
+    <link name="link">
+      <inertial>
+        <pose>0 0 -0.3 0 0 0</pose>
+        <mass>20</mass>
+        <inertia>
+          <ixx>0.30417</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.10417</iyy>
+          <iyz>0</iyz>
+          <izz>1.33333</izz>
+        </inertia>
+      </inertial>
+      <collision name="crocodile_collision">
+        <pose>0 0 0.06 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>8.0 4.0 1.5</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="crocodile_visual">
+        <geometry>
+	        <mesh><uri>meshes/crocodile.dae</uri></mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
