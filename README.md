@@ -1,7 +1,7 @@
 # <div align="center">Simple Car Simulation<br>with Gazebo & ROS2</div>
 
 <div align="center">
-    <img src="images/gazebo_all.png" width="850">
+    <img src="images/first.png" width="850">
     <p>
         This is a reposity for autonomous car simulation,equipped with toturials and necessary nodes.
         <br>A standalone package without other algorithms inside.
@@ -81,6 +81,29 @@ More types of messages can be found [here](README_msg_types.md)
 - Add perception node(**SLAM with lidar/cam/imu**)
 - Ameliorate docs
 
+</details>
+
+## <div align="center">Modules</div>
+<details open>
+<summary>Perception</summary>
+
+1. Git clone [ros2_gmapping](https://github.com/Project-MANAS/slam_gmapping) & tf_publisher(not available yet)
+2. ```bash
+    ros2 run tf_publisher odom_tf
+    ros2 launch slam_gmapping slam_gmapping.launch.py
+    cd $PATH/TO/THIS/REPO/utils & ./bridge.sh
+    ```
+3. Click the start button in gazebo & see what happens in rviz2
+
+<div align="center"><img src="images/gz_map.png" width="45%"><img src="images/rviz_map.png" width="45%"></div>
+</details>
+
+<details open>
+<summary>Planning</summary>
+</details>
+
+<details open>
+<summary>Control</summary>
 </details>
 
 ## <div align="center">Contact</div>
