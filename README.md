@@ -100,10 +100,12 @@ More types of messages can be found [here](README_msg_types.md)
 
 <details open>
 <summary>Planning</summary>
+<p>To be done</p>
 </details>
 
 <details open>
 <summary>Control</summary>
+<p>To be done</p>
 </details>
 
 ## <div align="center">Contact</div>
