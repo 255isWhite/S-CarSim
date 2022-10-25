@@ -4,7 +4,10 @@
     <img src="images/gazebo_all.png" width="850">
     <p>
         This is a reposity for autonomous car simulation,equipped with toturials and necessary nodes.
+        <br>A standalone package without other algorithms inside.
     </p>
+
+(**Due to finish before leaving school**)
 
 English | [简体中文](README_cn.md)
 
