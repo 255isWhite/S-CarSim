@@ -140,7 +140,7 @@
             </link>
         </model>
 
-        <model name='vehicle_blue' canonical_link='chassis'>
+        <model name='vehicle' canonical_link='chassis'>
             <pose relative_to='world'>-0 -0 0 0 0 0</pose>   <!--the pose is relative to the world by default-->
 
             <frame name="lidar_frame" attached_to='chassis'>
@@ -716,7 +716,7 @@
                 <match field="data">16777235</match>
             </input>
             <output type="gz.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 5}, angular: {z: 0.0}
+                linear: {x: 1.0}, angular: {z: 0.0}
             </output>
         </plugin>
 
@@ -727,7 +727,7 @@
                 <match field="data">16777237</match>
             </input>
             <output type="gz.msgs.Twist" topic="/cmd_vel">
-                linear: {x: -5}, angular: {z: 0.0}
+                linear: {x: -1.5}, angular: {z: 0.0}
             </output>
         </plugin>
 
@@ -738,7 +738,7 @@
                 <match field="data">16777236</match>
             </input>
             <output type="gz.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 0.0}, angular: {z: -5}
+                linear: {x: 0.0}, angular: {z: 0.0}
             </output>
         </plugin>
 
@@ -749,7 +749,7 @@
                 <match field="data">16777234</match>
             </input>
             <output type="gz.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 0.0}, angular: {z: 5}
+                linear: {x: 0.0}, angular: {z: 0.5}
             </output>
         </plugin>
 

@@ -4,8 +4,11 @@
         <command>gz sim ./sdf/diffdrive.sdf</command>
     </executable>
 
-    <executable name='lidar'>
+    <!-- <executable name='lidar'>
         <command>./build/lidar_node</command>
-    </executable>
+    </executable> -->
 
+    <executable name='bridge'>
+        <command>ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=./utils/bridge.yaml</command>
+    </executable>
 </gz>
