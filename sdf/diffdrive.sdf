@@ -98,6 +98,8 @@
             <!-- KeyPublisher plugin-->
             <plugin filename="KeyPublisher" name="Key Publisher"/>
 
+            <plugin filename="VisualizeLidar" name="Visualize Lidar"/>
+
         </gui>
 
         <light type="directional" name="sun">
@@ -192,26 +194,28 @@
                 <sensor name='gpu_lidar' type='gpu_lidar'>"
                     <pose relative_to='lidar_frame'>0 0 0 0 0 0</pose>
                     <topic>lidar</topic>
-                    <update_rate>20</update_rate>
+                    <update_rate>60</update_rate>
                     <ray>
                     <scan>
                         <horizontal>
-                        <samples>640</samples>
+                        <samples>2046</samples>
                         <resolution>1</resolution>
-                        <min_angle>-1.396263</min_angle>
-                        <max_angle>1.396263</max_angle>
+                        <!-- <min_angle>-1.396263</min_angle>
+                        <max_angle>1.396263</max_angle> -->
+                        <min_angle>-3.1415926</min_angle>
+                        <max_angle>3.1415926</max_angle>
                         </horizontal>
                         <vertical>
                         <samples>1</samples>
-                        <resolution>0.01</resolution>
+                        <resolution>0.001</resolution>
                         <min_angle>0</min_angle>
                         <max_angle>0</max_angle>
                         </vertical>
                     </scan>
                     <range>
                         <min>0.08</min>
-                        <max>20.0</max>
-                        <resolution>0.01</resolution>
+                        <max>60.0</max>
+                        <resolution>0.001</resolution>
                     </range>
                     </ray>
                     <always_on>1</always_on>
@@ -672,7 +676,7 @@
             </link>
             <plugin filename="libgz-sim-touchplugin-system.so"
                     name="gz::sim::systems::TouchPlugin">
-                <target>vehicle_blue</target>
+                <target>vehicle</target>
                 <namespace>wall</namespace>
                 <time>0.001</time>
                 <enabled>true</enabled>
@@ -716,7 +720,7 @@
                 <match field="data">16777235</match>
             </input>
             <output type="gz.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 1.0}, angular: {z: 0.0}
+                linear: {x: 1.5}, angular: {z: 0.0}
             </output>
         </plugin>
 
@@ -731,17 +735,6 @@
             </output>
         </plugin>
 
-        <!-- Rotating right-->
-        <plugin filename="libgz-sim-triggered-publisher-system.so"
-                name="gz::sim::systems::TriggeredPublisher">
-            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
-                <match field="data">16777236</match>
-            </input>
-            <output type="gz.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 0.0}, angular: {z: 0.0}
-            </output>
-        </plugin>
-
         <!--Rotating left-->
         <plugin filename="libgz-sim-triggered-publisher-system.so"
                 name="gz::sim::systems::TriggeredPublisher">
@@ -749,9 +742,79 @@
                 <match field="data">16777234</match>
             </input>
             <output type="gz.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 0.0}, angular: {z: 0.5}
+                linear: {x: 0.0}, angular: {z: 0.8}
             </output>
         </plugin>
+
+        <!-- Rotating right-->
+        <plugin filename="libgz-sim-triggered-publisher-system.so"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">16777236</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.0}, angular: {z: -0.8}
+            </output>
+        </plugin>
+
+
+        <!-- Moving Forward Fast-->
+        <plugin filename="libgz-sim-triggered-publisher-system.so"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">87</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 5.0}, angular: {z: 0.0}
+            </output>
+        </plugin>
+
+        <!-- Moving Backward Fast-->
+        <plugin filename="libgz-sim-triggered-publisher-system.so"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">83</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: -5.0}, angular: {z: 0.0}
+            </output>
+        </plugin>
+
+        <!--Rotating left Fast-->
+        <plugin filename="libgz-sim-triggered-publisher-system.so"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">68</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.0}, angular: {z: -3.0}
+            </output>
+        </plugin>
+
+        <!-- Rotating right Fast-->
+        <plugin filename="libgz-sim-triggered-publisher-system.so"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">65</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.0}, angular: {z: 3.0}
+            </output>
+        </plugin>
+
+        <!-- Stop-->
+        <plugin filename="libgz-sim-triggered-publisher-system.so"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">74</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.0}, angular: {z: 0.0}
+            </output>
+        </plugin>
+
+
+
 
         <!--stop when hit the wall-->
         <plugin filename="libgz-sim-triggered-publisher-system.so"
